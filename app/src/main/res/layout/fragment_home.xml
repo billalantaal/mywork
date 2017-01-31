@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.bilal.madical.HomeFragment"
+    android:background="@drawable/background">
+
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:id="@+id/managedoctor"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/manage_doc"
+        android:layout_marginTop="30dp"
+
+        />
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="120dp"
+        android:id="@+id/manageuser"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/manage_usr"
+        />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="210dp"
+        android:id="@+id/managemeeting"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/manage_pro"
+        />
+
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:id="@+id/completetasks"
+        android:layout_marginTop="300dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/manage_tsk"
+        />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:id="@+id/viewreports"
+        android:layout_marginTop="390dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/view_rpt"
+
+        />
+
+    <!--  <Button
+          android:layout_width="100dp"
+          android:layout_height="70dp"
+          android:text="View Profile"
+          android:id="@+id/viewrepofile"
+          android:layout_marginTop="350dp"
+          android:layout_centerHorizontal="true"
+          />-->
+</RelativeLayout>

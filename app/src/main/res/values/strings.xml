@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Medical Rep</string>
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+
+    <string name="country_prompt">Choose a Doctor</string>
+    <string name="new_game">Set Target</string>
+    <string-array name="country_arrays">
+        <item>Doctor1</item>
+        <item>Doctor2</item>
+        <item>Doctor3</item>
+        <item>Doctor4</item>
+        <item>Doctor5</item>
+    </string-array>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="nav_item_home">Home</string>
+    <string name="nav_item_friends">Edit Name</string>
+    <string name="nav_item_notifications">Change Password</string>
+    <string name="nav_item_logout">Logout</string>
+    <string name="nav_item_exit">Exit</string>
+
+    <!-- navigation drawer item labels  -->
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_home</item>
+        <item>@string/nav_item_friends</item>
+        <item>@string/nav_item_notifications</item>
+        <item>@string/nav_item_logout</item>
+        <item>@string/nav_item_exit</item>
+    </string-array>
+
+    <string name="title_messages">Messages</string>
+    <string name="title_friends">Friends</string>
+    <string name="title_home">Home</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello TodAY fragment</string>
+
+    <string-array name="login_array">
+        <item>Admin</item>
+        <item>User</item>
+    </string-array>
+
+</resources>

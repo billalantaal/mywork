@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:fillViewport="false">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_insert_pro"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.bilal.madical.InsertPro">
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:hint="Id"
+        android:id="@+id/idpro"
+        android:layout_centerHorizontal="true"
+
+        />
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:hint="Name"
+        android:id="@+id/name_pro"
+        android:layout_centerHorizontal="true"
+        />
+
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:hint="Discription"
+        android:id="@+id/disc_pro"
+        android:layout_centerHorizontal="true"
+        />
+
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
+        android:hint="Amount"
+        android:id="@+id/amount_pro"
+        android:layout_centerHorizontal="true"
+        />
+
+
+
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="360dp"
+        android:id="@+id/register_pro"
+        android:layout_centerHorizontal="true"
+        android:text="Register Product"
+        />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/updatepro"
+        android:layout_marginTop="430dp"
+        android:layout_centerHorizontal="true"
+        android:text="Update Product"
+        />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/deletepro"
+        android:layout_marginTop="500dp"
+        android:layout_centerHorizontal="true"
+        android:text="Delete Product"
+        />
+
+</RelativeLayout>
+
+    </ScrollView>
