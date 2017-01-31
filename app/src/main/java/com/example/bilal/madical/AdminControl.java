@@ -25,5 +25,6 @@ public class AdminControl extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
 
+        //bilal
     }
 }
