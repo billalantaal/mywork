@@ -381,7 +381,7 @@ public class BackgroundTaskUser extends AsyncTask<String, Void, String> {
                     String itemValue = (String) Admin_Info.listView.getItemAtPosition(position);
 
                     // Show Alert
-                    Toast.makeText(ctx, "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_LONG).show();
+//                    Toast.makeText(ctx, "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_LONG).show();
                     Admin_Info.profileupdateid = itemPosition;
                     ctx.startActivity(new Intent(ctx, UserRecord.class));
 

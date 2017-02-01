@@ -38,7 +38,7 @@
         </activity>
         <activity
             android:name=".AdmincontrolActivity"
-            android:theme="@style/MyMaterialTheme"></activity>
+            android:theme="@style/MyMaterialTheme" />
         <activity
             android:name=".AdminControl"
             android:parentActivityName=".MainActivity">
@@ -50,6 +50,7 @@
         </activity>
         <activity
             android:name=".Admin_Info"
+            android:label="List Of User"
             android:parentActivityName=".MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
@@ -59,6 +60,7 @@
         </activity>
         <activity
             android:name=".UserRecord"
+            android:label="User"
             android:parentActivityName=".Admin_Info">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
@@ -102,15 +104,20 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ManageUserTask" />
         </activity>
-        <activity android:name=".InsertDoctor" />
-        <activity android:name=".ManageDoc" />
+        <activity android:name=".InsertDoctor"
+            android:label="Doctor"/>
+        <activity android:name=".ManageDoc"
+            android:label="List Of Doctors"/>
         <activity android:name=".ManageProducts" />
         <activity android:name=".UpdateDoc" />
         <activity android:name=".InsertPro" />
         <activity
             android:name=".RegisterProducts"
             android:label="@string/title_activity_register_products"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RegisterDoc"
+            android:label="@string/title_activity_register_doc"></activity>
     </application>
 
 </manifest>

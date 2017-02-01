@@ -29,7 +29,7 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
         android:hint="Id"
         android:id="@+id/iddoc"
         android:layout_centerHorizontal="true"
@@ -38,7 +38,7 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
         android:hint="Name"
         android:id="@+id/name_doc"
         android:layout_centerHorizontal="true"
@@ -48,7 +48,7 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="160dp"
         android:hint="Designation"
         android:id="@+id/desig_doc"
         android:layout_centerHorizontal="true"
@@ -58,7 +58,7 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="220dp"
         android:hint="Phone"
         android:id="@+id/phone_doc"
         android:layout_centerHorizontal="true"
@@ -68,7 +68,7 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="280dp"
         android:hint="Address"
         android:id="@+id/address_doc"
         android:layout_centerHorizontal="true" />
@@ -78,38 +78,38 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="430dp"
+        android:layout_marginTop="340dp"
         android:hint="Speciality"
         android:id="@+id/speciality_doc"
         android:layout_centerHorizontal="true"
         />
 
 
-    <Button
+  <!--  <Button
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="500dp"
         android:id="@+id/register_doc"
         android:layout_centerHorizontal="true"
         android:text="Register Doctor"
-        />
+        />-->
 
     <Button
-        android:layout_width="300dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:id="@+id/updatedoc"
-        android:layout_marginTop="560dp"
+        android:layout_marginTop="400dp"
         android:layout_centerHorizontal="true"
-        android:text="Update Doctor"
+        android:text="Update"
         />
 
    <Button
-       android:layout_width="300dp"
+       android:layout_width="200dp"
        android:layout_height="wrap_content"
        android:id="@+id/deletedoc"
-       android:layout_marginTop="610dp"
+       android:layout_marginTop="460dp"
        android:layout_centerHorizontal="true"
-       android:text="Delete Doctor"
+       android:text="Delete"
        />
 
 </RelativeLayout>

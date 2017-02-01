@@ -26,7 +26,7 @@ public class InsertDoctor extends AppCompatActivity {
     EditText Dt3;
     EditText Dt4;
     EditText Dt5;
-    Button Db;
+//    Button Db;
     Button Ud;
     Button DD;
 
@@ -39,12 +39,12 @@ public class InsertDoctor extends AppCompatActivity {
         coming();
 
 
-        Db.setOnClickListener(new View.OnClickListener() {
+        /*Db.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AddDoctor();
             }
-        });
+        });*/
 
         Ud.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +70,7 @@ public class InsertDoctor extends AppCompatActivity {
         Dt3 = (EditText) findViewById(R.id.phone_doc);
         Dt4 = (EditText) findViewById(R.id.address_doc);
         Dt5 = (EditText) findViewById(R.id.speciality_doc);
-        Db = (Button) findViewById(R.id.register_doc);
+//        Db = (Button) findViewById(R.id.register_doc);
         Ud = (Button) findViewById(R.id.updatedoc);
         DD = (Button) findViewById(R.id.deletedoc);
 

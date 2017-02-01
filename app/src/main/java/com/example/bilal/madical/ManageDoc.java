@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -27,14 +28,21 @@ public class ManageDoc extends AppCompatActivity {
     Context ctx;
     List<Doctor> docRetrieve;
     ListView listView1;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_doc);
         listView1=(ListView)findViewById(R.id.showdoc);
+        button=(Button) findViewById(R.id.register_doc);
         getDoctor();
 
+    }
+
+    public void registerdoctor(View view){
+        Intent intent =new Intent(this,RegisterDoc.class);
+        startActivity(intent);
     }
 
     public void getDoctor() {

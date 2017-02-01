@@ -3,13 +3,16 @@ package com.example.bilal.madical;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Admin_Info extends Activity {
+public class Admin_Info extends AppCompatActivity {
 
     Context cntx;
     //String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry","WebOS","Ubuntu","Windows7","Max OS X"};
@@ -57,7 +60,12 @@ public class Admin_Info extends Activity {
         // Forth - the Array of data
 
 
-    }/*
+    }
+
+    public void registeruser(View view){
+        startActivity(new Intent(this, RegisterUserActivity.class));
+    }
+    /*
     @Override
     protected void onPause() {
         super.onPause();
