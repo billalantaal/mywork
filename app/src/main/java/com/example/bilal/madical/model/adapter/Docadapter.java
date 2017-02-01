@@ -31,6 +31,11 @@ public class Docadapter extends ArrayAdapter<Doctor> {
         Doctor doctor = docList.get(position);
         TextView tv = (TextView) view.findViewById(R.id.name);
         tv.setText(doctor.getName());
+        TextView num= (TextView) view.findViewById(R.id.number);
+        int total= position+1;
+        num.setText(""+total+":");
+        TextView adrs= (TextView) view.findViewById(R.id.adress);
+        adrs.setText("Adress:"+doctor.getAddress());
         return view;
     }
 
@@ -38,7 +43,7 @@ public class Docadapter extends ArrayAdapter<Doctor> {
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.item_file, parent, false);
+        View view = inflater.inflate(R.layout.doc_file, parent, false);
         Doctor doctor = docList.get(position);
         TextView tv = (TextView) view.findViewById(R.id.name);
         tv.setText(doctor.getName());

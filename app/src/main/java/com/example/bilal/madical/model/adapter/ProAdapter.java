@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.bilal.madical.R;
 import com.example.bilal.madical.model.pojo.Product;
@@ -36,6 +37,9 @@ public class ProAdapter extends ArrayAdapter<Product> {
         Product product = proList1.get(position);
         TextView tv = (TextView) view.findViewById(R.id.name);
         tv.setText(product.getName());
+        TextView num= (TextView) view.findViewById(R.id.number);
+        int total= position+1;
+        num.setText(""+total+"-");
         return view;
     }
 

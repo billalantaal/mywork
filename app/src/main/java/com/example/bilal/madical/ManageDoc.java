@@ -59,7 +59,7 @@ public class ManageDoc extends AppCompatActivity {
             public void onResponse(final Call<List<Doctor>> call, Response<List<Doctor>> response) {
 
                 docRetrieve = response.body();
-                Docadapter adpt = new Docadapter(getApplicationContext(), R.layout.item_file, docRetrieve);
+                Docadapter adpt = new Docadapter(getApplicationContext(), R.layout.doc_file, docRetrieve);
                 listView1.setAdapter(adpt);
                 listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
