@@ -38,8 +38,7 @@
         </activity>
         <activity
             android:name=".AdmincontrolActivity"
-            android:theme="@style/MyMaterialTheme">
-        </activity>
+            android:theme="@style/MyMaterialTheme"></activity>
         <activity
             android:name=".AdminControl"
             android:parentActivityName=".MainActivity">
@@ -107,7 +106,11 @@
         <activity android:name=".ManageDoc" />
         <activity android:name=".ManageProducts" />
         <activity android:name=".UpdateDoc" />
-        <activity android:name=".InsertPro"></activity>
+        <activity android:name=".InsertPro" />
+        <activity
+            android:name=".RegisterProducts"
+            android:label="@string/title_activity_register_products"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

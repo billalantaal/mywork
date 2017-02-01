@@ -16,7 +16,6 @@ public class AdminControl extends AppCompatActivity {
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
 
-
         SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager());
 
         viewPager.setAdapter(adapter);

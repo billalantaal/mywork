@@ -77,4 +77,10 @@ public class ManageProducts extends AppCompatActivity {
             }
         });
     }
+
+    public void registerproduct(View view){
+        Intent intent=new Intent(this,RegisterProducts.class);
+        startActivity(intent);
+
+    }
 }

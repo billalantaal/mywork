@@ -43,5 +43,6 @@
         <item>Admin</item>
         <item>User</item>
     </string-array>
+    <string name="title_activity_register_products">RegisterProducts</string>
 
 </resources>
