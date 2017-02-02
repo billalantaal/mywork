@@ -276,6 +276,9 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
         if (ids == R.id.spinnerdoctor) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
             myStringArray[0] = doctor.getName().toString();
+            int hf = doctor.getId();
+            Toast.makeText(this,""+hf,Toast.LENGTH_SHORT).show();
+
 
         }
 
