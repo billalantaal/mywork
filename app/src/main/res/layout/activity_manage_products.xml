@@ -14,9 +14,17 @@
 
     <ListView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
         android:id="@+id/showproduct">
 
     </ListView>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="430dp"
+        android:layout_centerHorizontal="true"
+        android:text="add Product"
+        android:onClick="registerproduct"/>
 
 </RelativeLayout>

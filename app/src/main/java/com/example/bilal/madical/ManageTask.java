@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bilal.madical.model.adapter.DocAdptrSpinr;
 import com.example.bilal.madical.model.adapter.Docadapter;
 import com.example.bilal.madical.model.callback.InsertTask;
 import com.example.bilal.madical.model.callback.doc;
@@ -130,7 +131,7 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
             public void onResponse(Call<List<Doctor>> call, Response<List<Doctor>> response) {
 
                 docList = response.body();
-                Docadapter adpt = new Docadapter(getApplicationContext(), R.layout.doc_file, docList);
+                DocAdptrSpinr adpt = new DocAdptrSpinr(getApplicationContext(), R.layout.docspinr, docList);
                 spinner1.setAdapter(adpt);
                 spinner2.setAdapter(adpt);
                 spinner3.setAdapter(adpt);
@@ -275,6 +276,9 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
         if (ids == R.id.spinnerdoctor) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
             myStringArray[0] = doctor.getName().toString();
+            int hf = doctor.getId();
+            Toast.makeText(this,""+hf,Toast.LENGTH_SHORT).show();
+
 
         }
 

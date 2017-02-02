@@ -16,20 +16,13 @@
     tools:context="com.example.bilal.madical.RegisterUserActivity"
     android:background="@drawable/background">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
-        />
 
 
 
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="40dp"
         android:hint="First_Name"
         android:id="@+id/firstname_ET"
         android:layout_centerHorizontal="true"
@@ -39,7 +32,7 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="100dp"
         android:hint="Last_Name"
         android:id="@+id/lastname_ET"
         android:layout_centerHorizontal="true"
@@ -49,7 +42,7 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="160dp"
         android:hint="User_Name"
         android:id="@+id/usernam_ET"
         android:layout_centerHorizontal="true"
@@ -59,7 +52,7 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="220dp"
         android:hint="Password"
         android:id="@+id/passwrod_ET"
         android:inputType="textPassword"
@@ -70,7 +63,7 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="430dp"
+        android:layout_marginTop="280dp"
         android:hint="Phone"
         android:id="@+id/phone_ET"
         android:inputType="phone"
@@ -81,7 +74,7 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="340dp"
         android:hint="Created_By"
         android:id="@+id/created_ET"
         android:layout_centerHorizontal="true"
@@ -91,14 +84,14 @@
     <EditText
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="570dp"
+        android:layout_marginTop="400dp"
         android:hint="Status"
         android:id="@+id/status_ET"
         android:layout_centerHorizontal="true" />
     <Button
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="630dp"
+        android:layout_marginTop="460dp"
         android:id="@+id/registerbtn"
         android:layout_centerHorizontal="true"
         android:onClick="register_user"

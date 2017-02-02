@@ -45,12 +45,12 @@ public class InsertPro extends AppCompatActivity {
             }
         });
 
-        addb.setOnClickListener(new View.OnClickListener() {
+   /*     addb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AddPro();
             }
-        });
+        });*/
 
         updb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,7 +109,7 @@ public class InsertPro extends AppCompatActivity {
     private void AddProduct(){
 
     }
-    private void AddPro() {
+  /*  private void AddPro() {
         Retrofit addproducts = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -135,7 +135,7 @@ public class InsertPro extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 
     private void UpdateProduct() {
         Retrofit updateproducts = new Retrofit.Builder()
