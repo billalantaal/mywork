@@ -14,6 +14,7 @@ public class Doctor implements Serializable{
     String phone;
     String address;
     String speciality;
+    private String hospital_clinic;
 
     public int getId() {
         return id;
@@ -61,5 +62,13 @@ public class Doctor implements Serializable{
 
     public void setSpeciality(String speciality) {
         this.speciality = speciality;
+    }
+
+    public String getHospitalClinic() {
+        return hospital_clinic;
+    }
+
+    public void setHospitalClinic(String hospital_clinic) {
+        this.hospital_clinic = hospital_clinic;
     }
 }

@@ -26,6 +26,7 @@ public class InsertDoctor extends AppCompatActivity {
     EditText Dt3;
     EditText Dt4;
     EditText Dt5;
+    EditText Dt6;
 //    Button Db;
     Button Ud;
     Button DD;
@@ -71,6 +72,7 @@ public class InsertDoctor extends AppCompatActivity {
         Dt4 = (EditText) findViewById(R.id.address_doc);
         Dt5 = (EditText) findViewById(R.id.speciality_doc);
 //        Db = (Button) findViewById(R.id.register_doc);
+        Dt6=(EditText) findViewById(R.id.hospiital);
         Ud = (Button) findViewById(R.id.updatedoc);
         DD = (Button) findViewById(R.id.deletedoc);
 
@@ -78,12 +80,13 @@ public class InsertDoctor extends AppCompatActivity {
 
     private void coming() {
         Doctor model = (Doctor) getIntent().getSerializableExtra("bbb");
-        DtId.setText("" + model.getId());
+        DtId.setText(""+model.getId());
         Dt1.setText(model.getName());
         Dt2.setText(model.getDesignation());
         Dt3.setText(model.getPhone());
         Dt4.setText(model.getAddress());
         Dt5.setText(model.getSpeciality());
+        Dt6.setText(model.getHospitalClinic());
 
     }
 
@@ -99,13 +102,15 @@ public class InsertDoctor extends AppCompatActivity {
         doctor.setPhone(Dt3.getText().toString());
         doctor.setAddress(Dt4.getText().toString());
         doctor.setSpeciality(Dt5.getText().toString());
+        doctor.setHospitalClinic(Dt6.getText().toString());
 
 
         Call<Doctor> call = register_doc.insert(doctor.getName(),
                 doctor.getDesignation(),
                 doctor.getPhone(),
                 doctor.getAddress(),
-                doctor.getSpeciality());
+                doctor.getSpeciality(),
+                doctor.getHospitalClinic());
 
         call.enqueue(new Callback<Doctor>() {
             @Override
@@ -134,6 +139,7 @@ public class InsertDoctor extends AppCompatActivity {
         doctor.setPhone(Dt3.getText().toString());
         doctor.setAddress(Dt4.getText().toString());
         doctor.setSpeciality(Dt5.getText().toString());
+        doctor.setHospitalClinic(Dt6.getText().toString());
 
 
         Call<Doctor> cll = update_doc.update(
@@ -142,7 +148,8 @@ public class InsertDoctor extends AppCompatActivity {
                 doctor.getDesignation(),
                 doctor.getPhone(),
                 doctor.getAddress(),
-                doctor.getSpeciality());
+                doctor.getSpeciality(),
+                doctor.getHospitalClinic());
 
         cll.enqueue(new Callback<Doctor>() {
             @Override

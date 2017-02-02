@@ -48,7 +48,7 @@
         <EditText
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="110dp"
+            android:layout_marginTop="100dp"
             android:hint="Designation"
             android:id="@+id/desig_doc"
             android:layout_centerHorizontal="true"
@@ -58,7 +58,7 @@
         <EditText
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="170dp"
+            android:layout_marginTop="160dp"
             android:hint="Phone"
             android:id="@+id/phone_doc"
             android:layout_centerHorizontal="true"
@@ -68,7 +68,7 @@
         <EditText
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="230dp"
+            android:layout_marginTop="220dp"
             android:hint="Address"
             android:id="@+id/address_doc"
             android:layout_centerHorizontal="true" />
@@ -78,17 +78,27 @@
         <EditText
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="290dp"
+            android:layout_marginTop="280dp"
             android:hint="Speciality"
             android:id="@+id/speciality_doc"
             android:layout_centerHorizontal="true"
             />
 
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="340dp"
+            android:hint="Hospital/Clinic"
+            android:id="@+id/hospital"
+            android:layout_centerHorizontal="true"
+            />
+
+
 
           <Button
               android:layout_width="300dp"
               android:layout_height="wrap_content"
-              android:layout_marginTop="350dp"
+              android:layout_marginTop="420dp"
               android:id="@+id/register_doc"
               android:layout_centerHorizontal="true"
               android:text="Register Doctor"

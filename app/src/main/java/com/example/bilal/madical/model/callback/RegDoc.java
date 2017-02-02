@@ -19,6 +19,7 @@ public interface RegDoc {
                         @Field("designation") String designaation,
                         @Field("phone") String phone,
                         @Field("address") String address,
-                        @Field("speciality") String speciality);
+                        @Field("speciality") String speciality,
+                        @Field("hospital") String hospital);
 
 }

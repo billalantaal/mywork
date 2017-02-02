@@ -26,6 +26,7 @@ public class RegisterDoc extends AppCompatActivity {
     EditText Dt3;
     EditText Dt4;
     EditText Dt5;
+    EditText Dt6;
     Button Db;
 
     @Override
@@ -41,7 +42,9 @@ public class RegisterDoc extends AppCompatActivity {
         Dt3 = (EditText) findViewById(R.id.phone_doc);
         Dt4 = (EditText) findViewById(R.id.address_doc);
         Dt5 = (EditText) findViewById(R.id.speciality_doc);
+        Dt6 = (EditText) findViewById(R.id.hospital);
         Db = (Button) findViewById(R.id.register_doc);
+
         Db.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,13 +66,15 @@ public class RegisterDoc extends AppCompatActivity {
         doctor.setPhone(Dt3.getText().toString());
         doctor.setAddress(Dt4.getText().toString());
         doctor.setSpeciality(Dt5.getText().toString());
+        doctor.setHospitalClinic(Dt6.getText().toString());
 
 
         Call<Doctor> call = register_doc.insert(doctor.getName(),
                 doctor.getDesignation(),
                 doctor.getPhone(),
                 doctor.getAddress(),
-                doctor.getSpeciality());
+                doctor.getSpeciality(),
+                doctor.getHospitalClinic());
 
         call.enqueue(new Callback<Doctor>() {
             @Override
