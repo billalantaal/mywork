@@ -23,8 +23,13 @@ import com.example.bilal.madical.model.callback.doc;
 import com.example.bilal.madical.model.helper.Constants;
 import com.example.bilal.madical.model.pojo.Doctor;
 import com.example.bilal.madical.model.pojo.Task;
+import com.example.bilal.madical.model.pojo.Word;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
@@ -56,11 +61,16 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
     Spinner spinner11;
     Spinner spinner12;
     Spinner spinner13;
-    String[] myStringArray = new String[13];
+    int[] myStringArray = new int[13];
     EditText editTm;
     EditText editTm1;
     EditText editTm2;
+    List<Word> wordArrayList=new ArrayList<>();
+    Word word;
 
+    boolean iCurrentSelection=true;
+    boolean iCurrentSelection1=true;
+    boolean iCurrentSelection2=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +95,7 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
         retrieve();
 
 
+//        iCurrentSelection = spinner1.getSelectedItemPosition();
     }
 
 
@@ -222,6 +233,10 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
     }
 
     public void show(View view) {
+
+
+
+
         /*for (int i=0;i<=12;i++){
             Toast.makeText(this,""+myStringArray[i],Toast.LENGTH_SHORT).show();
         }*/
@@ -231,7 +246,7 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
         Toast.makeText(this, ""+textuser.getText(), Toast.LENGTH_SHORT).show();
         Toast.makeText(this, ""+editText.getText(), Toast.LENGTH_SHORT).show();*/
 
-        Retrofit addtask = new Retrofit.Builder()
+   /*     Retrofit addtask = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -265,73 +280,107 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
             public void onFailure(Call<Task> call, Throwable t) {
 
             }
-        });
+        });*/
+        Gson gson = new GsonBuilder().create();
+        JsonArray myCustomArray = gson.toJsonTree(wordArrayList).getAsJsonArray();
+
+
+
+        Toast.makeText(this,""+myCustomArray,Toast.LENGTH_LONG).show();
+        Log.i("this",""+myCustomArray);
+        wordArrayList.clear();
     }
 
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+
         int ids = parent.getId();
         if (ids == R.id.spinnerdoctor) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            myStringArray[0] = doctor.getName().toString();
-            int hf = doctor.getId();
-            Toast.makeText(this,""+hf,Toast.LENGTH_SHORT).show();
 
+                // Your code here
+            if(!iCurrentSelection){
+                myStringArray[0] = doctor.getId();
+                word=new Word(editTm.getText().toString(),myStringArray[0]);
+                wordArrayList.add(word);
+
+            }
+
+            iCurrentSelection=false;
+
+         /*   if(doctor.getName().toString().matches("Dr Shahroz")){
+                Toast.makeText(this,"bukd",Toast.LENGTH_LONG).show();
+            }*/
+
+//            Word c=wordArrayList.get(0);
 
         }
 
         if (ids == R.id.spinnerdoctor1) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            myStringArray[1] = doctor.getName().toString();
+
+            if(!iCurrentSelection1) {
+                myStringArray[1] = doctor.getId();
+                word = new Word(editTm1.getText().toString(), myStringArray[1]);
+                wordArrayList.add(word);
+            }
+            iCurrentSelection1=false;
+
         }
 
         if (ids == R.id.spinnerdoctor2) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            myStringArray[2] = doctor.getName().toString();
+            if(!iCurrentSelection2) {
+                myStringArray[2] = doctor.getId();
+                word = new Word(editTm2.getText().toString(), myStringArray[2]);
+                wordArrayList.add(word);
+            }
+            iCurrentSelection2=false;
+
         }
 
         if (ids == R.id.spinnerdoctor3) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            myStringArray[3] = doctor.getName().toString();
+            myStringArray[3] = doctor.getId();
         }
         if (ids == R.id.spinnerdoctor4) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            myStringArray[4] = doctor.getName().toString();
+            myStringArray[4] = doctor.getId();
         }
         if (ids == R.id.spinnerdoctor5) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            myStringArray[5] = doctor.getName().toString();
+            myStringArray[5] = doctor.getId();
         }
         if (ids == R.id.spinnerdoctor6) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            myStringArray[6] = doctor.getName().toString();
+            myStringArray[6] = doctor.getId();
         }
         if (ids == R.id.spinnerdoctor7) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            myStringArray[7] = doctor.getName().toString();
+            myStringArray[7] = doctor.getId();
         }
         if (ids == R.id.spinnerdoctor8) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            myStringArray[8] = doctor.getName().toString();
+            myStringArray[8] = doctor.getId();
         }
         if (ids == R.id.spinnerdoctor9) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            myStringArray[9] = doctor.getName().toString();
+            myStringArray[9] = doctor.getId();
         }
         if (ids == R.id.spinnerdoctor10) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            myStringArray[10] = doctor.getName().toString();
+            myStringArray[10] = doctor.getId();
         }
         if (ids == R.id.spinnerdoctor11) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            myStringArray[11] = doctor.getName().toString();
+            myStringArray[11] = doctor.getId();
         }
 
         if (ids == R.id.spinnerdoctor12) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            myStringArray[12] = doctor.getName().toString();
+            myStringArray[12] = doctor.getId();
 
         }
 
