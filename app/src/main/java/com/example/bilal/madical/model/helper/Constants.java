@@ -5,5 +5,5 @@ package com.example.bilal.madical.model.helper;
  */
 
 public class Constants {
-    public static final String BASE_URL="http://192.168.10.7/";
+    public static final String BASE_URL="http://192.168.10.6/";
 }

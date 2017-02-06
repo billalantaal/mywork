@@ -14,13 +14,8 @@ import retrofit2.http.POST;
 
 public interface InsertTask {
     @FormUrlEncoded
-    @POST("Madical/inserttask.php")
+    @POST("test/test.php")
     Call<Task> inserttsk(@Field("date") String date,
                          @Field("user") String user,
-                         @Field("doctor") String doctor,
-                         @Field("doctor1") String doctor1,
-                         @Field("doctor2") String doctor2,
-                         @Field("time") String time,
-                         @Field("time1") String time1,
-                         @Field("time2") String time2);
+                         @Field("jsndata") String jsndata);
 }

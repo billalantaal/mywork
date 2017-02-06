@@ -63,7 +63,7 @@ public class ManageUserTask extends AppCompatActivity {
                         try {
                             String myvalue = "bil";
                             Flower flower = flowerList.get(position);
-                            String itemValue = flower.getUser_Name().toString();
+                            int itemValue = flower.getUser_Id();
                             Intent intent = new Intent(getApplicationContext(), ManageTask.class);
                             intent.putExtra(myvalue, itemValue);
                             startActivity(intent);
