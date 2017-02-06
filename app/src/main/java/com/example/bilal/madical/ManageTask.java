@@ -45,7 +45,7 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
     String data;
 
 
-    List<Doctor> docList;
+    List<Doctor> docList=new ArrayList<>();
     EditText editText;
     TextView textuser;
     Spinner spinner1;
@@ -67,6 +67,7 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
     EditText editTm2;
     List<Word> wordArrayList=new ArrayList<>();
     Word word;
+    int crnt=0;
 
     boolean iCurrentSelection=true;
     boolean iCurrentSelection1=true;
@@ -129,6 +130,15 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
     }
 
     public void getFeedDoctor() {
+        Doctor doctor1=new Doctor();
+        doctor1.setName("select");
+        doctor1.setId(1);
+        doctor1.setAddress("gfh");
+        doctor1.setDesignation("fgj");
+        doctor1.setHospitalClinic("ghdfj");
+        doctor1.setPhone("gjg");
+        doctor1.setSpeciality("gfg");
+        docList.add(doctor1);
 
         Retrofit docrestadapter = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
@@ -141,7 +151,18 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
             @Override
             public void onResponse(Call<List<Doctor>> call, Response<List<Doctor>> response) {
 
+                Doctor doctor1=new Doctor();
+                doctor1.setName("Select Doctor");
+                doctor1.setId(1);
+              /*  doctor1.setAddress("gfh");
+                doctor1.setDesignation("fgj");
+                doctor1.setHospitalClinic("ghdfj");
+                doctor1.setPhone("gjg");
+                doctor1.setSpeciality("gfg");*/
+
                 docList = response.body();
+                docList.add(0,doctor1);
+
                 DocAdptrSpinr adpt = new DocAdptrSpinr(getApplicationContext(), R.layout.docspinr, docList);
                 spinner1.setAdapter(adpt);
                 spinner2.setAdapter(adpt);
@@ -281,6 +302,11 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
 
             }
         });*/
+
+        word=new Word(editTm.getText().toString(),myStringArray[0]);
+        wordArrayList.add(word);
+        word = new Word(editTm1.getText().toString(), myStringArray[1]);
+        wordArrayList.add(word);
         Gson gson = new GsonBuilder().create();
         JsonArray myCustomArray = gson.toJsonTree(wordArrayList).getAsJsonArray();
 
@@ -300,20 +326,20 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
         if (ids == R.id.spinnerdoctor) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
 
-                // Your code here
-            if(!iCurrentSelection){
-                myStringArray[0] = doctor.getId();
-                word=new Word(editTm.getText().toString(),myStringArray[0]);
-                wordArrayList.add(word);
 
+            if(!iCurrentSelection){
+                /*int i=parent.getSelectedItemPosition();
+                if(i==0){
+
+                    Toast.makeText(this,"billl",Toast.LENGTH_LONG).show();
+                }*/
+                myStringArray[0] = doctor.getId();
             }
 
             iCurrentSelection=false;
-
          /*   if(doctor.getName().toString().matches("Dr Shahroz")){
                 Toast.makeText(this,"bukd",Toast.LENGTH_LONG).show();
             }*/
-
 //            Word c=wordArrayList.get(0);
 
         }
@@ -323,8 +349,7 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
 
             if(!iCurrentSelection1) {
                 myStringArray[1] = doctor.getId();
-                word = new Word(editTm1.getText().toString(), myStringArray[1]);
-                wordArrayList.add(word);
+
             }
             iCurrentSelection1=false;
 
