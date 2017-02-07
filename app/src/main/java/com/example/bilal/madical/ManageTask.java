@@ -47,7 +47,7 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
     int data;
 
 
-    List<Doctor> docList=new ArrayList<>();
+    List<Doctor> docList = new ArrayList<>();
     EditText editText;
     TextView textuser;
     Spinner spinner1;
@@ -67,23 +67,21 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
     EditText editTm;
     EditText editTm1;
     EditText editTm2;
-    List<Word> wordArrayList=new ArrayList<>();
+    List<Word> wordArrayList = new ArrayList<>();
     Word word;
-    int crnt=0;
-    String[] timearray=new String[2];
 
-    boolean iCurrentSelection=true;
-    boolean iCurrentSelection1=true;
-    boolean iCurrentSelection2=true;
-    boolean iCurrentSelection3=true;
-    boolean iCurrentSelection4=true;
-    boolean iCurrentSelection5=true;
-    boolean iCurrentSelection6=true;
-    boolean iCurrentSelection7=true;
-    boolean iCurrentSelection8=true;
-    boolean iCurrentSelection9=true;
-    boolean iCurrentSelection10=true;
-    boolean[] chk=new boolean[2];
+    boolean iCurrentSelection = true;
+    boolean iCurrentSelection1 = true;
+    boolean iCurrentSelection2 = true;
+    boolean iCurrentSelection3 = true;
+    boolean iCurrentSelection4 = true;
+    boolean iCurrentSelection5 = true;
+    boolean iCurrentSelection6 = true;
+    boolean iCurrentSelection7 = true;
+    boolean iCurrentSelection8 = true;
+    boolean iCurrentSelection9 = true;
+    boolean iCurrentSelection10 = true;
+    boolean[] chk = new boolean[2];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,11 +105,10 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
 
         retrieve();
 
-        Arrays.fill(chk,true);
+        Arrays.fill(chk, true);
 
 //        iCurrentSelection = spinner1.getSelectedItemPosition();
     }
-
 
     private void configViews() {
 
@@ -137,10 +134,10 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
 
     public void getFeedUser() {
 
-        data = getIntent().getIntExtra("bil",1);
-        Toast.makeText(this,""+data,Toast.LENGTH_LONG).show();
+        data = getIntent().getIntExtra("bil", 1);
+        Toast.makeText(this, "" + data, Toast.LENGTH_LONG).show();
 
-        textuser.setText(""+data);
+        textuser.setText("" + data);
 
     }
 
@@ -166,7 +163,7 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
             @Override
             public void onResponse(Call<List<Doctor>> call, Response<List<Doctor>> response) {
 
-                Doctor doctor1=new Doctor();
+                Doctor doctor1 = new Doctor();
                 doctor1.setName("Select Doctor");
                 doctor1.setId(-1);
               /*  doctor1.setAddress("gfh");
@@ -176,7 +173,7 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
                 doctor1.setSpeciality("gfg");*/
 
                 docList = response.body();
-                docList.add(0,doctor1);
+                docList.add(0, doctor1);
 
                 DocAdptrSpinr adpt = new DocAdptrSpinr(getApplicationContext(), R.layout.docspinr, docList);
                 spinner1.setAdapter(adpt);
@@ -220,7 +217,6 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
 
     }
 
-
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
         @Override
@@ -234,7 +230,6 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
         }
 
     };
-
 
     private void updateLabel() {
         String myFormat = "dd/MM/yyyy"; //In which you need put here
@@ -283,25 +278,20 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
         Toast.makeText(this, ""+editText.getText(), Toast.LENGTH_SHORT).show();*/
 
 
-
 //        for(int i=0; i<=2; i++){
 
 
-        if((!chk[0])&&(!chk[1])){
+        if ((!chk[0]) && (!chk[1])) {
 
-            for (int i=0;i<2;i++) {
+            for (int i = 0; i < 2; i++) {
                 word = new Word(editTm.getText().toString(), myStringArray[i]);
                 wordArrayList.add(word);
 
 
-
             }
-        }else {
-            Toast.makeText(this,"please fill all ",Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "please fill all ", Toast.LENGTH_LONG).show();
         }
-
-
-
 
 
 //        }
@@ -309,45 +299,42 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
         wordArrayList.add(word);*/
         Gson gson = new GsonBuilder().create();
         JsonArray myCustomArray = gson.toJsonTree(wordArrayList).getAsJsonArray();
-       String jsn= myCustomArray.toString();
+        String jsn = myCustomArray.toString();
 
 
-
-
-        Toast.makeText(this,""+jsn,Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "" + jsn, Toast.LENGTH_LONG).show();
 
 
         Retrofit addtask = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        InsertTask insertTask=addtask.create(InsertTask.class);
-        Task task=new Task();
+        InsertTask insertTask = addtask.create(InsertTask.class);
+        Task task = new Task();
         task.setDate(editText.getText().toString());
         task.setUser(textuser.getText().toString());
         task.setJsndoctortime(jsn);
 
-        Call<Task> taskCall=insertTask.inserttsk(task.getDate(),
+        Call<Task> taskCall = insertTask.inserttsk(task.getDate(),
                 task.getUser(),
                 task.getJsndoctortime());
         taskCall.enqueue(new Callback<Task>() {
             @Override
             public void onResponse(Call<Task> call, Response<Task> response) {
 
-                Toast.makeText(getApplicationContext(),"ho gya",Toast.LENGTH_LONG).show();
-                Log.i("this","hhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+                Toast.makeText(getApplicationContext(), "ho gya", Toast.LENGTH_LONG).show();
+                Log.i("this", "hhhhhhhhhhhhhhhhhhhhhhhhhhhh");
             }
 
             @Override
             public void onFailure(Call<Task> call, Throwable t) {
 
-                Log.i("this","lllllllllllllllllllllllllllllllll");
+                Log.i("this", "lllllllllllllllllllllllllllllllll");
             }
         });
 
         wordArrayList.clear();
     }
-
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -358,18 +345,17 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
 
 
-            if(!iCurrentSelection){
+            if (!iCurrentSelection) {
                 /*int i=parent.getSelectedItemPosition();
                 if(i==0){
 
                     Toast.makeText(this,"billl",Toast.LENGTH_LONG).show();
                 }*/
                 myStringArray[0] = doctor.getId();
-                chk[0]=false;
+                chk[0] = false;
 
-            }
-            else {
-                iCurrentSelection=false;
+            } else {
+                iCurrentSelection = false;
             }
 
 
@@ -384,86 +370,86 @@ public class ManageTask extends AppCompatActivity implements AdapterView.OnItemS
         if (ids == R.id.spinnerdoctor1) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
 
-            if(!iCurrentSelection1) {
+            if (!iCurrentSelection1) {
                 myStringArray[1] = doctor.getId();
-                chk[1]=false;
-            }else {
-                iCurrentSelection1=false;
+                chk[1] = false;
+            } else {
+                iCurrentSelection1 = false;
             }
 
         }
 
         if (ids == R.id.spinnerdoctor2) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            if(!iCurrentSelection2) {
+            if (!iCurrentSelection2) {
                 myStringArray[2] = doctor.getId();
             }
-            iCurrentSelection2=false;
+            iCurrentSelection2 = false;
         }
 
         if (ids == R.id.spinnerdoctor3) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            if(!iCurrentSelection3) {
+            if (!iCurrentSelection3) {
                 myStringArray[3] = doctor.getId();
             }
-            iCurrentSelection3=false;
+            iCurrentSelection3 = false;
         }
         if (ids == R.id.spinnerdoctor4) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
 
-            if(!iCurrentSelection4) {
+            if (!iCurrentSelection4) {
                 myStringArray[4] = doctor.getId();
             }
-            iCurrentSelection4=false;
+            iCurrentSelection4 = false;
         }
         if (ids == R.id.spinnerdoctor5) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
 
-            if(!iCurrentSelection5) {
+            if (!iCurrentSelection5) {
                 myStringArray[5] = doctor.getId();
 
             }
-            iCurrentSelection5=false;
+            iCurrentSelection5 = false;
         }
         if (ids == R.id.spinnerdoctor6) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            if(!iCurrentSelection6) {
+            if (!iCurrentSelection6) {
 
                 myStringArray[6] = doctor.getId();
             }
-            iCurrentSelection6=false;
+            iCurrentSelection6 = false;
         }
         if (ids == R.id.spinnerdoctor7) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
 
-            if(!iCurrentSelection7) {
+            if (!iCurrentSelection7) {
                 myStringArray[7] = doctor.getId();
             }
-            iCurrentSelection7=false;
+            iCurrentSelection7 = false;
         }
         if (ids == R.id.spinnerdoctor8) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            if(!iCurrentSelection8) {
+            if (!iCurrentSelection8) {
                 myStringArray[8] = doctor.getId();
 
             }
-            iCurrentSelection8=false;
+            iCurrentSelection8 = false;
         }
         if (ids == R.id.spinnerdoctor9) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            if(!iCurrentSelection9) {
+            if (!iCurrentSelection9) {
                 myStringArray[9] = doctor.getId();
 
             }
-            iCurrentSelection9=false;
+            iCurrentSelection9 = false;
         }
         if (ids == R.id.spinnerdoctor10) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);
-            if(!iCurrentSelection10) {
+            if (!iCurrentSelection10) {
                 myStringArray[10] = doctor.getId();
 
             }
-            iCurrentSelection10=false;
+            iCurrentSelection10 = false;
         }
         if (ids == R.id.spinnerdoctor11) {
             Doctor doctor = (Doctor) parent.getItemAtPosition(position);

@@ -97,7 +97,9 @@
         </activity>
         <activity
             android:name=".SetTarget"
-            android:parentActivityName=".ManageUserTask">
+            android:parentActivityName=".ManageUserTask"
+            android:theme="@style/ListFont"
+            >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -115,8 +117,7 @@
             android:name=".RegisterProducts"
             android:label="@string/title_activity_register_products"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".RegisterDoc"
+        <activity android:name=".RegisterDoc"
             android:label="@string/title_activity_register_doc"></activity>
     </application>
 
