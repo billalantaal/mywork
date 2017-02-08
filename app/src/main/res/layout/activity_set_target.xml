@@ -37,7 +37,8 @@
         android:layout_height="75dp"
         android:layout_marginTop="430dp"
         android:layout_centerHorizontal="true"
-        android:text="Save"/>
+        android:text="Save"
+        android:onClick="saveprotrgt"/>
 
 
 

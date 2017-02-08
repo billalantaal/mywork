@@ -8,14 +8,15 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.bilal.madical.model.adapter.ProAdapter;
 import com.example.bilal.madical.model.adapter.ProAdapterForTarget;
 import com.example.bilal.madical.model.callback.IProduct;
 import com.example.bilal.madical.model.helper.Constants;
 import com.example.bilal.madical.model.pojo.Product;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
@@ -33,18 +34,34 @@ public class SetTarget extends AppCompatActivity {
     EditText t1;
     TextView txt;
     ListView listprofortrgt;
-    List<Product> prolistfortrgt;
+    List<Product> prolistfortrgt = new ArrayList<>();
+    int[] P_id;
+    View v;
+    String[] valueOfEditText;
+    DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear,
+                              int dayOfMonth) {
+            // TODO Auto-generated method stub
+            myCalendar.set(Calendar.YEAR, year);
+            myCalendar.set(Calendar.MONTH, monthOfYear);
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateLabel();
+        }
+
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_target);
         t1 = (EditText) findViewById(R.id.setdate);
-        txt= (TextView) findViewById(R.id.useridtrgt);
-        listprofortrgt= (ListView) findViewById(R.id.listtarget);
+        txt = (TextView) findViewById(R.id.useridtrgt);
+        listprofortrgt = (ListView) findViewById(R.id.listtarget);
 
-        int mydata = getIntent().getIntExtra("bila",1);
-        txt.setText(""+mydata);
+        int mydata = getIntent().getIntExtra("bila", 1);
+        txt.setText("" + mydata);
 
         String myFormat = "dd/MM/yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
@@ -61,24 +78,19 @@ public class SetTarget extends AppCompatActivity {
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
+
+
         getProduct();
+   /*     listprofortrgt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplication(),"gfffff",Toast.LENGTH_LONG).show();
+                Log.i("this","fggggggggggggggggffffffffffffffffffff");
+            }
+        });*/
+
 
     }
-
-    DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-
-        @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear,
-                              int dayOfMonth) {
-            // TODO Auto-generated method stub
-            myCalendar.set(Calendar.YEAR, year);
-            myCalendar.set(Calendar.MONTH, monthOfYear);
-            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            updateLabel();
-        }
-
-    };
-
 
     private void updateLabel() {
         String myFormat = "dd/MM/yyyy"; //In which you need put here
@@ -88,7 +100,7 @@ public class SetTarget extends AppCompatActivity {
 
     public void getProduct() {
 
-        Retrofit productadapter = new Retrofit.Builder()
+        final Retrofit productadapter = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -102,19 +114,16 @@ public class SetTarget extends AppCompatActivity {
                 prolistfortrgt = response.body();
                 ProAdapterForTarget proadpt = new ProAdapterForTarget(getApplicationContext(), R.layout.pro_item_trgt, prolistfortrgt);
                 listprofortrgt.setAdapter(proadpt);
-  /*              listpro.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int i = listprofortrgt.getAdapter().getCount();
 
-                        Product product1= prolist.get(position);
-                        Intent intent=new Intent(getActivity(),InsertPro.class);
-                        intent.putExtra("pro",product1);
-                        startActivity(intent);
+                P_id = new int[i];
 
-                        Toast.makeText(getActivity(),""+product1.getName(),Toast.LENGTH_LONG).show();
-                    }
-                });*/
+                for (int j = 0; j < i; j++) {
 
+                    Product product = prolistfortrgt.get(j);
+                    P_id[j] = product.getId();
+
+                }
 
 
             }
@@ -124,5 +133,20 @@ public class SetTarget extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void saveprotrgt(View view) {
+        for(int k=0;k<P_id.length;k++){
+            v=listprofortrgt.getChildAt(k);
+            EditText editText= (EditText) v.findViewById(R.id.quantity);
+            valueOfEditText = new String[P_id.length];
+            valueOfEditText[k]=editText.getText().toString();
+            Toast.makeText(getApplicationContext(),""+valueOfEditText[k],Toast.LENGTH_LONG).show();
+        }
+
+//        for (int k=0;k>valueOfEditText.length;k++){
+
+//        }
+
     }
 }
